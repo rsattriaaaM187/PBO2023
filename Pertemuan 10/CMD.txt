@@ -1,0 +1,86 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Rsatia>d:
+
+D:\>cd xampp
+
+D:\xampp>cd mysql
+
+D:\xampp\mysql>cd bin
+
+D:\xampp\mysql\bin>mydql - u root-p
+'mydql' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 5429
+Server version: 10.4.17-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use kampusumc
+Database changed
+MariaDB [kampusumc]> show tables;
++---------------------+
+| Tables_in_kampusumc |
++---------------------+
+| matakuliah          |
++---------------------+
+1 row in set (0.001 sec)
+
+MariaDB [kampusumc]> select * from matakuliah;
++----+--------+-------------------------+-----+
+| id | kodemk | namamk                  | sks |
++----+--------+-------------------------+-----+
+|  1 | 123    | PBO                     | 3   |
+|  2 | 212    | PBO Lanjut              | 3   |
+|  3 | 322    | Pemograman Web          | 2   |
+|  4 | 232    | Pemograman Web Lanjut   | 3   |
+|  5 | 3221   | Sistem Nirkabel Praktek | 2   |
+|  6 | 345    | Logika Matematika       | 3   |
++----+--------+-------------------------+-----+
+6 rows in set (0.001 sec)
+
+MariaDB [kampusumc]> select sks from matakuiah;
+ERROR 1146 (42S02): Table 'kampusumc.matakuiah' doesn't exist
+MariaDB [kampusumc]> select sks from matakuliah;
++-----+
+| sks |
++-----+
+| 3   |
+| 3   |
+| 2   |
+| 3   |
+| 2   |
+| 3   |
++-----+
+6 rows in set (0.000 sec)
+
+MariaDB [kampusumc]> select namamk from matakuliah where sks = 3;
++-----------------------+
+| namamk                |
++-----------------------+
+| PBO                   |
+| PBO Lanjut            |
+| Pemograman Web Lanjut |
+| Logika Matematika     |
++-----------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [kampusumc]> select namamk,sks from matakuliah where sks = 3;
++-----------------------+-----+
+| namamk                | sks |
++-----------------------+-----+
+| PBO                   | 3   |
+| PBO Lanjut            | 3   |
+| Pemograman Web Lanjut | 3   |
+| Logika Matematika     | 3   |
++-----------------------+-----+
+4 rows in set (0.001 sec)
+
+MariaDB [kampusumc]>
